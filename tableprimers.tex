@@ -1,0 +1,66 @@
+%=================================== PhD setting
+\documentclass[12pt,a4paper]{scrreprt} %paraskip changes, {scrreprt} for thesis
+\usepackage{graphicx} % also to resize the tables to textwidth
+\usepackage{booktabs} % for nice looking tables
+\usepackage{tabularx} % to set table width to textwidth
+\usepackage{colortbl} % for shading tables
+\usepackage{hyperref}
+\usepackage{xcolor} %to change color of the different links in latex
+\usepackage{geometry}
+\geometry{a4paper,margin=1in}
+%\geometry{a4paper,left=15mm,right=15mm, top=1cm, bottom=2cm}
+\definecolor{dark-red}{rgb}{0.4,0.15,0.15}
+\definecolor{dark-blue}{rgb}{0.15,0.15,0.4}
+\definecolor{medium-blue}{rgb}{0,0,0.5}
+\hypersetup{
+    colorlinks, linkcolor={gray},
+    citecolor={dark-blue}, urlcolor={medium-blue}
+}
+\begin{document}
+\begin{table}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{rllclllc} 
+\rowcolor[gray]{0.2} \hline\textcolor{white} {\textbf{Transcript}} & \textcolor{white} {\textbf{\shortstack[l]{Primer sequence\footnote{Letters in bold refer to the spanning part of the sequence} \\ (from $ 5^{'} $ to $ 3^{'}  $)}}} & \textcolor{white} {\textbf{RefSeq}}\footnote{RefSeq: NCBI database of reference sequences http://www.ncbi.nlm.nih.gov} & \textcolor{white} {\shortstack[c]{\textbf{AnT}\footnote{AnT: annealing temperature of the qPCR reaction ($ 95^{15} $, $ 94^{\prime 15} $, $ AnT^{\prime 30} $, $ 72^{\prime30} $, $ 72^5 $)}\\ \textbf{($^{\circ}C $)}}} & \textcolor{white} {\textbf{\shortstack{Amplicon\\size (bp)}}} & \textcolor{white} {\textbf{Exons\footnote{Indicates which exons flanked (f) or spanned (s) by a primer set followed by the total number of exons for that transcript, e.g. \textit{ACTB} primer set flanks exon 3 and exon 4 – total exons are 6}}} & \textcolor{white} {\textbf{\shortstack[l]{Intron\\size (bp)}}} & \textcolor{white} {\textbf{\textit{E}\footnote{Amplification efficiency as determined by the dilution curve}}} \\ 
+\hline \multicolumn{1}{l}{\textit{\textbf{ACTB}}} & \multicolumn{7}{l}{a reference gene that encodes a cytoskeletal actin}\\ 
+\ fwd & AAGGCCAACCGCGAGAAGATG & NM\_001101 & 57 & 100 & f(3,4)-6 & 441 & 2 \\ 
+rev & CAGAGGCGTACAGGGATAGCAC &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+%\hline &  &  &  &  &  &  &  \\ 
+\hline 
+\end{tabular} }
+\end{table}
+\end{document}
