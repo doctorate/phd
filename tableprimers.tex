@@ -1,13 +1,13 @@
 %=================================== PhD setting
 \documentclass[12pt,a4paper]{scrreprt} %paraskip changes, {scrreprt} for thesis
-\usepackage{graphicx} % also to resize the tables to textwidth
+\usepackage{courier} % for courier fonts
+\usepackage{graphicx} % also to resize the tables to textwidth, {graphics} is older
 \usepackage{booktabs} % for nice looking tables
 \usepackage{tabularx} % to set table width to textwidth
 \usepackage{colortbl} % for shading tables
 \usepackage{hyperref}
 \usepackage{xcolor} %to change color of the different links in latex
-\usepackage{geometry}
-\geometry{a4paper,margin=1in}
+%\usepackage{geometry}
 %\geometry{a4paper,left=15mm,right=15mm, top=1cm, bottom=2cm}
 \definecolor{dark-red}{rgb}{0.4,0.15,0.15}
 \definecolor{dark-blue}{rgb}{0.15,0.15,0.4}
@@ -16,51 +16,62 @@
     colorlinks, linkcolor={gray},
     citecolor={dark-blue}, urlcolor={medium-blue}
 }
+
+\usepackage[left=1.5in, right=1in, top=1in, bottom=1in, includefoot, headheight=13.6pt]{geometry}% http://codeinthehole.com/writing/writing-a-thesis-in-latex/
+
 \begin{document}
 \begin{table}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{rllclllc} 
+\resizebox{\textwidth}{!}{ %
+\begin{tabular}{rllclllc} % 8 columns
 \rowcolor[gray]{0.2} \hline\textcolor{white} {\textbf{Transcript}} & \textcolor{white} {\textbf{\shortstack[l]{Primer sequence\footnote{Letters in bold refer to the spanning part of the sequence} \\ (from $ 5^{'} $ to $ 3^{'}  $)}}} & \textcolor{white} {\textbf{RefSeq}}\footnote{RefSeq: NCBI database of reference sequences http://www.ncbi.nlm.nih.gov} & \textcolor{white} {\shortstack[c]{\textbf{AnT}\footnote{AnT: annealing temperature of the qPCR reaction ($ 95^{15} $, $ 94^{\prime 15} $, $ AnT^{\prime 30} $, $ 72^{\prime30} $, $ 72^5 $)}\\ \textbf{($^{\circ}C $)}}} & \textcolor{white} {\textbf{\shortstack{Amplicon\\size (bp)}}} & \textcolor{white} {\textbf{Exons\footnote{Indicates which exons flanked (f) or spanned (s) by a primer set followed by the total number of exons for that transcript, e.g. \textit{ACTB} primer set flanks exon 3 and exon 4 – total exons are 6}}} & \textcolor{white} {\textbf{\shortstack[l]{Intron\\size (bp)}}} & \textcolor{white} {\textbf{\textit{E}\footnote{Amplification efficiency as determined by the dilution curve}}} \\ 
 \hline \multicolumn{1}{l}{\textit{\textbf{ACTB}}} & \multicolumn{7}{l}{a reference gene that encodes a cytoskeletal actin}\\ 
-\ fwd & AAGGCCAACCGCGAGAAGATG & NM\_001101 & 57 & 100 & f(3,4)-6 & 441 & 2 \\ 
-rev & CAGAGGCGTACAGGGATAGCAC &  &  &  &  &  &  \\ 
-%\hline &  &  &  &  &  &  &  \\ 
-%\hline &  &  &  &  &  &  &  \\ 
-%\hline &  &  &  &  &  &  &  \\ 
-%\hline &  &  &  &  &  &  &  \\ 
-%\hline &  &  &  &  &  &  &  \\ 
-%\hline &  &  &  &  &  &  &  \\ 
-%\hline &  &  &  &  &  &  &  \\ 
-%\hline &  &  &  &  &  &  &  \\ 
-%\hline &  &  &  &  &  &  &  \\ 
-%\hline &  &  &  &  &  &  &  \\ 
-%\hline &  &  &  &  &  &  &  \\ 
-%\hline &  &  &  &  &  &  &  \\ 
-%\hline &  &  &  &  &  &  &  \\ 
-%\hline &  &  &  &  &  &  &  \\ 
-%\hline &  &  &  &  &  &  &  \\ 
-%\hline &  &  &  &  &  &  &  \\ 
-%\hline &  &  &  &  &  &  &  \\ 
-%\hline &  &  &  &  &  &  &  \\ 
-%\hline &  &  &  &  &  &  &  \\ 
-%\hline &  &  &  &  &  &  &  \\ 
-%\hline &  &  &  &  &  &  &  \\ 
-%\hline &  &  &  &  &  &  &  \\ 
-%\hline &  &  &  &  &  &  &  \\ 
-%\hline &  &  &  &  &  &  &  \\ 
-%\hline &  &  &  &  &  &  &  \\ 
-%\hline &  &  &  &  &  &  &  \\ 
-%\hline &  &  &  &  &  &  &  \\ 
-%\hline &  &  &  &  &  &  &  \\ 
-%\hline &  &  &  &  &  &  &  \\ 
-%\hline &  &  &  &  &  &  &  \\ 
-%\hline &  &  &  &  &  &  &  \\ 
-%\hline &  &  &  &  &  &  &  \\ 
-%\hline &  &  &  &  &  &  &  \\ 
-%\hline &  &  &  &  &  &  &  \\ 
-%\hline &  &  &  &  &  &  &  \\ 
+\ fwd & \texttt{AAGGCCAACCGCGAGAAGATG} & NM\_001101 & 57 & 100 & f(3,4)-6 & 441 & 2 \\ 
+rev & \texttt{CAGAGGCGTACAGGGATAGCAC} &  &  &  &  &  &  \\ 
+\hline \multicolumn{1}{l}{\textit{\textbf{RPL29}}} & \multicolumn{7}{l}{a reference gene that encodes a ribosomal protein in the 60S subunit} \\ 
+\ fwd & \texttt{GCCAAGTCCAAGAACCACAC} & NM\_000992 & 57 & 133 & f(2,4)-4 & 1233 & 2 \\ 
+\ rev & \texttt{CAAAGCGCATGTTCCTCAGG} &  &  &  &  &  &  \\ 
+\hline \multicolumn{1}{l}{\textit{\textbf{B2M}}} & \multicolumn{7}{l}{\textit{$ \beta $2-microglobulin}, a reference gene that encodes a protein associated with MHC\footnote{The major histocompatibility complex}} \\ 
+\ fwd & \texttt{ATGAGTATGCCTGCCGTGTG} & NM\_004048 & 57 & 105 & s(2,\textbf{4})-4 & 1877 &  \\ 
+\ rev & \texttt{ATGCGGCATCTTCAAAC\textbf{CTC}} & & &  &  &  &  \\ 
+\hline \multicolumn{1}{l}{\textit{\textbf{IL8}}} & \multicolumn{7}{l}{encodes a protein in the CXC chemokine family called IL-8} \\ 
+\ fwd & \texttt{CTTCCTGATTTCTGCAGCTCTG} & NM\_000584 & 57 & 193 & f(1,3)-4 & 1090 & 2 \\ 
+\ rev & \texttt{GAGCTCTCTTCCATCAGAAAGC} &  &  &  &  &  &  \\ 
+\hline \multicolumn{1}{l}{\textit{\textbf{IL17A}}} & \multicolumn{7}{l}{one of six transcripts (A-F) that encode a proinflammatory cytokine produced by activated T cells} \\ 
+\ fwd & \texttt{AGGATGCCCAAATTCTGAGGAC} & NM\_002190 & 57 & 150 & s(2,\textbf{3})-3 & 1249 &  \\ 
+\ rev & \texttt{TCCTCATTGCGG\textbf{TGGAGATTC}} &  &  &  &  &  &  \\ 
+\hline \multicolumn{1}{l}{\textit{\textbf{IL23A}}} & \multicolumn{7}{l}{encodes p19    that pairs with p40 to form IL-23} \\ 
+\ fwd & \texttt{\textbf{GACACAT}GGATCTAAGAGAAGAG} & NM\_016584 & 57 & 109  & s(\textbf{1},\textbf{3})-4 & 385 & 1.95 \\ 
+\ rev & \texttt{\textbf{AA}CTGACTGTTGTCCCTGAG} &  &  &  &  &  &  \\ 
+\hline \multicolumn{1}{l}{\textit{\textbf{IL23R}}} & \multicolumn{7}{l}{encodes IL23A receptor which is required, along with IL12RB1, for signaling of IL-23 via p19} \\ 
+\ fwd & \texttt{TCCTGTGAAATGAGATACAAGGC} & NM\_144701 & 59 & 104 & f(6,7)-11 & 12518 & 1.95 \\ 
+\ rev & \texttt{GGCTCCAAGTAGAATTCTGACTG} &  &  &  &  &  &  \\ 
+\hline \multicolumn{1}{l}{\textit{\textbf{EBI3}}} & \multicolumn{7}{l}{\textit{IL27B}, encodes Ebi3 that pairs with p28 to form IL-27} \\ 
+\ fwd & \texttt{AGCTTCGTGCCTTTCATAACAG} & NM\_005755 & 57 & 140 & f(3,4)-5 & 1359 & 2 \\ 
+\ rev & \texttt{AGTGAGAAGATCTCTGGGAAGG} &  &  &  &  &  &  \\ 
+\hline \multicolumn{1}{l}{\textit{\textbf{gp130}}} & \multicolumn{7}{l}{\textit{IL6ST}, \textit{oncostatin M receptor}, \textit{CD130}, encodes a signal transducer that is shared by many cytokines} \\ 
+\ fwd & \texttt{ACTGTCCAAGACCTTAAACCT} & NM\_001190981 & 57 & 145 & f(7,8)-17 & 3110 & 1.98 \\ 
+\ rev & \texttt{AGAAACTTGGTGCTTTAGATGG} &  &  &  &  &  &  \\ 
+\hline \multicolumn{1}{l}{\textit{\textbf{IL12A}}} & \multicolumn{7}{l}{\textit{NKSF1}, \textit{CLMF1}, encodes p35 that pairs with p40 and Ebi3 to form IL-12 and IL-35, respectively} \\ 
+\ fwd & \texttt{AATGTTCCCATGCCTTCACC} & NM\_000882 & 59 & 110 & f(2,3)-7 & 2699 & 2 \\ 
+\ rev & \texttt{CAATCTCTTCAGAAGTGCAAGGG} &  &  &  &  &  &  \\ 
+\hline \multicolumn{1}{l}{\textit{\textbf{IL12RB2}}} & \multicolumn{7}{l}{encodes a protein that forms along with IL12RB1 a high affinity receptor for IL-12 via p35} \\ 
+\ fwd & \texttt{CCTCTTCACTTCCATCCACATTC} & NM\_001559 & 57 & 137 & f(5,6)-16 & 1202 & 1.96 \\ 
+\ rev & \texttt{AAGCAGTACCAGTCCCTCATC} &  &  &  &  &  &  \\ 
+\hline \multicolumn{1}{l}{\textit{\textbf{IL12B}}} & \multicolumn{7}{l}{\textit{NKSF2}, \textit{CLMF2}, encodes p40 that pairs with p35 and p19 to form IL-12 and IL-23, respectively} \\ 
+\ fwd & \texttt{\textbf{GGACATCA}TCAAACCTGACC} & NM\_002187 & 56 & 123 & s(\textbf{5},6)-8 & 1412 & 2 \\ 
+\ rev & \texttt{AGGGAGAAGTAGGAATGTGG} &  &  &  &  &  &  \\ 
+\hline \multicolumn{1}{l}{\textit{\textbf{IL12RB1}}} & \multicolumn{7}{l}{encodes a low affinity protein that binds to IL-12 and, along with IL12RB2, forms IL-12 receptor} \\ 
+\ fwd & \texttt{GCTGTACACTGTCACACTCTG} & NM\_005535 & 57 & 132 & f(4,5)-17 & 3176 & 1.9 \\ 
+\ rev & \texttt{AACTTGGACACCTTGATGTCTC} &  &  &  &  &  &  \\ 
+\hline \multicolumn{1}{l}{\textit{\textbf{IL27A}}} & \multicolumn{7}{l}{\textit{IL30}, encodes p28 that pairs with Ebi3 to form IL-27} \\ 
+\ fwd & \texttt{CTCCCTGATGTTTCCCTGAC} & NM\_145659 & 57 & 145 & f(3,4)-5 & 1560 & n.d.\footnote{Not determined} \\ 
+\ rev & \texttt{TCCTCTCCATGTTGGTCCAG} &  &  &  &  &  &  \\ 
+\hline \multicolumn{1}{l}{\textit{\textbf{IL27RA}}} & \multicolumn{7}{l}{\textit{WSX1}, \textit{CRL1}, \textit{TCCR}, \textit{zcytor1}, encodes a glycosylated transmembrane protein} \\ 
+\ fwd & \texttt{AGATGTGTGGGTATCAGGGAAC} & NM\_004843 & 57 & 102 & f(6,7)-14 & 3364 & 2 \\ 
+\ rev & \texttt{ACTTTGTAGCTCACCTGCAC} &  &  &  &  &  &  \\ 
 %\hline &  &  &  &  &  &  &  \\ 
 \hline 
 \end{tabular} }
 \end{table}
+
 \end{document}
