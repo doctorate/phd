@@ -2,7 +2,9 @@
 \documentclass[12pt,a4paper]{scrreprt} %paraskip changes, {scrreprt} for thesis
 \usepackage{courier} % for courier fonts
 \usepackage{graphicx} % also to resize the tables to textwidth, {graphics} is older
+\usepackage{float} % to prevent floating with H
 \usepackage{booktabs} % for nice looking tables
+\usepackage{tablefootnote} % for tablefootnotes see documentation for comparisons w/ alternatives
 \usepackage{tabularx} % to set table width to textwidth
 \usepackage{colortbl} % for shading tables
 \usepackage{hyperref}
@@ -20,17 +22,17 @@
 \usepackage[left=1.5in, right=1in, top=1in, bottom=1in, includefoot, headheight=13.6pt]{geometry}% http://codeinthehole.com/writing/writing-a-thesis-in-latex/
 
 \begin{document}
-\begin{table}
+\begin{table}[h]
 \resizebox{\textwidth}{!}{ %
 \begin{tabular}{rllclllc} % 8 columns
-\rowcolor[gray]{0.2} \hline\textcolor{white} {\textbf{Transcript}} & \textcolor{white} {\textbf{\shortstack[l]{Primer sequence\footnote{Letters in bold refer to the spanning part of the sequence} \\ (from $ 5^{'} $ to $ 3^{'}  $)}}} & \textcolor{white} {\textbf{RefSeq}}\footnote{RefSeq: NCBI database of reference sequences http://www.ncbi.nlm.nih.gov} & \textcolor{white} {\shortstack[c]{\textbf{AnT}\footnote{AnT: annealing temperature of the qPCR reaction ($ 95^{15} $, $ 94^{\prime 15} $, $ AnT^{\prime 30} $, $ 72^{\prime30} $, $ 72^5 $)}\\ \textbf{($^{\circ}C $)}}} & \textcolor{white} {\textbf{\shortstack{Amplicon\\size (bp)}}} & \textcolor{white} {\textbf{Exons\footnote{Indicates which exons flanked (f) or spanned (s) by a primer set followed by the total number of exons for that transcript, e.g. \textit{ACTB} primer set flanks exon 3 and exon 4 – total exons are 6}}} & \textcolor{white} {\textbf{\shortstack[l]{Intron\\size (bp)}}} & \textcolor{white} {\textbf{\textit{E}\footnote{Amplification efficiency as determined by the dilution curve}}} \\ 
+\rowcolor[gray]{0.2} \hline\textcolor{white} {\textbf{Transcript}} & \textcolor{white} {\textbf{\shortstack[l]{Primer sequence\tablefootnote{Letters in bold refer to the spanning part of the sequence} \\ (from $ 5^{'} $ to $ 3^{'}  $)}}} & \textcolor{white} {\textbf{RefSeq}}\tablefootnote{RefSeq: NCBI database of reference sequences http://www.ncbi.nlm.nih.gov} & \textcolor{white} {\shortstack[c]{\textbf{AnT}\tablefootnote{AnT: annealing temperature of the qPCR reaction ($ 95^{15} $, $ 94^{\prime 15} $, $ AnT^{\prime 30} $, $ 72^{\prime30} $, $ 72^5 $)}\\ \textbf{($^{\circ}C $)}}} & \textcolor{white} {\textbf{\shortstack{Amplicon\\size (bp)}}} & \textcolor{white} {\textbf{Exons\tablefootnote{Indicates exons flanked (f) or spanned (s) by a primer set followed by the total number of exons for that transcript, e.g.\textit{ACTB} primer set flanks exon 3 and exon 4 - total exons are 6}}} & \textcolor{white} {\textbf{\shortstack[l]{Intron\\size (bp)}}} & \textcolor{white} {\textbf{\textit{E}\tablefootnote{Amplification efficiency as determined by the dilution curve}}} \\ 
 \hline \multicolumn{1}{l}{\textit{\textbf{ACTB}}} & \multicolumn{7}{l}{a reference gene that encodes a cytoskeletal actin}\\ 
 \ fwd & \texttt{AAGGCCAACCGCGAGAAGATG} & NM\_001101 & 57 & 100 & f(3,4)-6 & 441 & 2 \\ 
 rev & \texttt{CAGAGGCGTACAGGGATAGCAC} &  &  &  &  &  &  \\ 
 \hline \multicolumn{1}{l}{\textit{\textbf{RPL29}}} & \multicolumn{7}{l}{a reference gene that encodes a ribosomal protein in the 60S subunit} \\ 
 \ fwd & \texttt{GCCAAGTCCAAGAACCACAC} & NM\_000992 & 57 & 133 & f(2,4)-4 & 1233 & 2 \\ 
 \ rev & \texttt{CAAAGCGCATGTTCCTCAGG} &  &  &  &  &  &  \\ 
-\hline \multicolumn{1}{l}{\textit{\textbf{B2M}}} & \multicolumn{7}{l}{\textit{$ \beta $2-microglobulin}, a reference gene that encodes a protein associated with MHC\footnote{The major histocompatibility complex}} \\ 
+\hline \multicolumn{1}{l}{\textit{\textbf{B2M}}} & \multicolumn{7}{l}{\textit{$ \beta $2-microglobulin}, a reference gene that encodes a protein associated with MHC\tablefootnote{The major histocompatibility complex}} \\ 
 \ fwd & \texttt{ATGAGTATGCCTGCCGTGTG} & NM\_004048 & 57 & 105 & s(2,\textbf{4})-4 & 1877 &  \\ 
 \ rev & \texttt{ATGCGGCATCTTCAAAC\textbf{CTC}} & & &  &  &  &  \\ 
 \hline \multicolumn{1}{l}{\textit{\textbf{IL8}}} & \multicolumn{7}{l}{encodes a protein in the CXC chemokine family called IL-8} \\ 
@@ -64,7 +66,7 @@ rev & \texttt{CAGAGGCGTACAGGGATAGCAC} &  &  &  &  &  &  \\
 \ fwd & \texttt{GCTGTACACTGTCACACTCTG} & NM\_005535 & 57 & 132 & f(4,5)-17 & 3176 & 1.9 \\ 
 \ rev & \texttt{AACTTGGACACCTTGATGTCTC} &  &  &  &  &  &  \\ 
 \hline \multicolumn{1}{l}{\textit{\textbf{IL27A}}} & \multicolumn{7}{l}{\textit{IL30}, encodes p28 that pairs with Ebi3 to form IL-27} \\ 
-\ fwd & \texttt{CTCCCTGATGTTTCCCTGAC} & NM\_145659 & 57 & 145 & f(3,4)-5 & 1560 & n.d.\footnote{Not determined} \\ 
+\ fwd & \texttt{CTCCCTGATGTTTCCCTGAC} & NM\_145659 & 57 & 145 & f(3,4)-5 & 1560 & 1.95 \\ 
 \ rev & \texttt{TCCTCTCCATGTTGGTCCAG} &  &  &  &  &  &  \\ 
 \hline \multicolumn{1}{l}{\textit{\textbf{IL27RA}}} & \multicolumn{7}{l}{\textit{WSX1}, \textit{CRL1}, \textit{TCCR}, \textit{zcytor1}, encodes a glycosylated transmembrane protein} \\ 
 \ fwd & \texttt{AGATGTGTGGGTATCAGGGAAC} & NM\_004843 & 57 & 102 & f(6,7)-14 & 3364 & 2 \\ 
@@ -73,5 +75,6 @@ rev & \texttt{CAGAGGCGTACAGGGATAGCAC} &  &  &  &  &  &  \\
 \hline 
 \end{tabular} }
 \end{table}
-
+\newpage
+\ and a second page here. this is a version control check here.
 \end{document}
