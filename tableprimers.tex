@@ -1,5 +1,5 @@
 %=================================== PhD setting
-\documentclass[12pt,a4paper]{scrreprt} %paraskip changes, {scrreprt} for thesis
+\documentclass[12pt]{scrreprt} %paraskip changes, {scrreprt} for thesis
 \usepackage{courier} % for courier fonts
 \usepackage{mathptmx} % for roman text fonts or {times}
 \usepackage{graphicx} % also to resize the tables to textwidth, {graphics} is older
@@ -21,9 +21,12 @@
 }
 
 \usepackage[left=1.5in, right=1in, top=1in, bottom=1in, includefoot, headheight=13.6pt]{geometry}% http://codeinthehole.com/writing/writing-a-thesis-in-latex/
-
+%todo: geometry is not part of KOMA, but when omitted create a footnote before table
 \begin{document}
 \begin{table}[htbp]
+%\caption{All primers which were used in RT-qPCR experiments.} % this will cause a problem
+%todo: try to fix the caption, when inserted the footnotes are shifted before table
+\label{tab:primers} % use for cross-reference
 \resizebox{\textwidth}{!}{ %
 \begin{tabular}{rllclllc} % 8 columns
 \toprule
@@ -80,5 +83,5 @@ rev & \texttt{CAGAGGCGTACAGGGATAGCAC} &  &  &  &  &  &  \\
 \end{tabular} }
 \end{table}
 \newpage
-\ and a second page here. this is a version control check here.
+\ and a second page here. this is a version control check here \ldots.
 \end{document}
