@@ -1,9 +1,12 @@
 \documentclass[12pt]{scrreprt}
 \usepackage[utf8]{inputenc}
+\usepackage[none]{hyphenat}% prevent hyphenation or line breakups
 \usepackage{tikz}
-\usetikzlibrary{arrows,shapes,positioning,shadows,trees,calc}
-\usepackage{caption}
+
+\usetikzlibrary{arrows,shapes,positioning,shadows,trees,calc} %\usepackage{caption}
+
 \newcommand{\species}[2]{\emph{#1 #2}}
+
 \tikzset{
   basic/.style  = {draw, drop shadow, font=\sffamily, rectangle},
   root/.style = {basic, rounded corners=2pt, thin, align=center, fill=gray!20},
@@ -14,26 +17,26 @@
 \begin{document}
 \begin{tikzpicture}
 \node [root,text centered, minimum height=30pt,text width=15em] (start) {\textbf{{\large Phd Project Schema}}};
-\node [level 2, below=1cm of start, xshift=-80pt] (c1) {{\textit{in vitro} analysis using AGS and MKN-28 as a cell model}};
-\node [level 2, right= of c1, xshift=-5pt] (c2) {{\textit{ex vivo} analysis of biological samples from 34 enrolled subjects}};
-\node [level 2, text width=5em, below = 1cm of c2, xshift=-110pt] (c21){Serum samples};
-\node [level 2, right = of c21, xshift=10pt, text width=9em] (c22){Gastric biopsies (antrum \& corpus)};
+\node [level 2, below=1cm of start, xshift=-80pt] (c1) {{\textit{in vitro} study using AGS and MKN-28 as a cell model {\Large \textcircled{\normalsize 1}} }};
+\node [level 2, right= of c1, xshift=-5pt] (c2) {{\textit{ex vivo} study of biological samples from 34 enrolled subjects {\Large \textcircled{\normalsize 2}} }};
+\node [level 2, text width=5em, below = 1cm of c2, xshift=-110pt] (c21){Serum {\Large \textcircled{\normalsize 7}} samples};
+\node [level 2, right = of c21, xshift=10pt, text width=9em] (c22){Gastric biopsies {\Large \textcircled{\normalsize 10}} (antrum \& corpus)};
 % The second level, relatively positioned nodes
 \begin{scope}[every node/.style={level 3}]
 % branch of exploration of cytokines
-\node [below =1cm of c1, xshift=-90pt, text width=17em] (c11){Exploration of gastric epithelial cytokine response upon BCM-300 infection by RT-qPCR\\ (completed)};
-\node [below =1cm of c11,text width=17em] (c12) {Study of \species {H.pylori} virulence factors by RT-qPCR gene expression analysis of cytokines upon infection with BCM-300, P1 wt, and its isogenic strains\\ (completed)};
-\node [below =1cm of c12, text width=17em] (c13) {Functional analysis of IL-12 cytokines by western blot and ELISA\\ (in process)};
-\node [below =1cm of c13, text width=17em] (c14) {Study of protein-protein interactions by co-immunoprecipitation and mass spectrometry\\ (in process)};
+\node [below =1cm of c1, xshift=-90pt, text width=17em] (c11){Exploration of gastric epithelial cytokine response upon BCM-300 infection by RT-qPCR\\ (completed) {\Large \textcircled{\normalsize 3}}};
+\node [below =1cm of c11,text width=17em] (c12) {Study of \species {H.pylori} virulence factors by RT-qPCR gene expression analysis of cytokines upon infection with BCM-300, P1 wt, and its isogenic strains\\ (completed) {\Large \textcircled{\normalsize 4}}};
+\node [below =1cm of c12, text width=17em] (c13) {Functional analysis of IL-12 cytokines by western blot and ELISA\\ (in process) {\Large \textcircled{\normalsize 5}}};
+\node [below =1cm of c13, text width=17em] (c14) {Study of protein-protein interactions by co-immunoprecipitation and mass spectrometry\\ (in process) {\Large \textcircled{\normalsize 6}}};
 % below branch of serum samplees
-\node [below =1cm of c21] (c211) {\species {H.pylori} status by ELISA\\ (completed) };
-\node [below =1cm of c211] (c212) {Gastropanel test by ELISA\\ (completed)};
+\node [below =1cm of c21] (c211) {\species {H.pylori} status by ELISA\\ (completed) {\Large \textcircled{\normalsize 8}} };
+\node [below =1cm of c211] (c212) {Gastropanel test by ELISA\\ (completed) {\Large \textcircled{\normalsize 9}}};
 % below branch of gastric biopsies
-\node [below =1cm of c22] (c221) {Bio-Plex analysis of inflammatory cytokines in lysates (unsuccessful)};
-\node [below =1cm of c221] (c222) {Gene expression analysis of cytokines by RT-qPCR\\ (completed)};
-\node [below =1cm of c222] (c223) {Functional analysis of cytokines by ELISA\\  (in process)};
+\node [below =1cm of c22] (c221) {Bio-Plex analysis of inflammatory cytokines in lysates (unsuccessful) {\Large \textcircled{\normalsize 11}}};
+\node [below =1cm of c221] (c222) {Gene expression analysis of cytokines by RT-qPCR\\ (completed) {\Large \textcircled{\normalsize 12}}};
+\node [below =1cm of c222] (c223) {Functional analysis of cytokines by ELISA\\  (in process) {\Large \textcircled{\normalsize 13}}};
 % final block
-\node [below =7cm of c212, text width=15em, align=center] (c213) {Statistical link analysis between \textit{in vitro} and \textit{ex vivo} studies };
+\node [below =6cm of c212, text width=15em, align=center] (c213) {Statistical link analysis between \textit{in vitro} and \textit{ex vivo} studies {\Large \textcircled{\normalsize 14}}};
 \end{scope}
 % draw lines from the start node (c1)
 \draw [->, ultra thick] (start.west) -| ([xshift=-2em]c1.north) ; % to in vitro
